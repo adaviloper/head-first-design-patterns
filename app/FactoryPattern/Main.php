@@ -2,9 +2,8 @@
 
 namespace App\FactoryPattern;
 
-use App\FactoryPattern\Factories\ChicagoPizzaFactory;
-use App\FactoryPattern\Factories\NYPizzaFactory;
 use App\FactoryPattern\Stores\CaliforniaPizzeria;
+use App\FactoryPattern\Stores\ChicagoPizzeria;
 use App\FactoryPattern\Stores\NYPizzeria;
 
 class Main
@@ -12,11 +11,14 @@ class Main
     public static function run(): void
     {
         $nyShop = new NYPizzeria();
-        $chicagoShop = new CaliforniaPizzeria();
+        $chicagoShop = new ChicagoPizzeria();
+        $californiaShop = new CaliforniaPizzeria();
 
-        $nyShop->orderPizza('cheese');
+        $nyShop->orderPizza('veggies');
         echo "\n";
-        $chicagoShop->orderPizza('cheese');
+        $chicagoShop->orderPizza('veggies');
+        echo "\n";
+        $californiaShop->orderPizza('veggies');
 
         exit();
     }

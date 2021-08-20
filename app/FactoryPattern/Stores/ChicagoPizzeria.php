@@ -2,7 +2,7 @@
 
 namespace App\FactoryPattern\Stores;
 
-use App\FactoryPattern\Factories\CaliforniaPizzaIngredientFactory;
+use App\FactoryPattern\Factories\ChicagoPizzaIngredientFactory;
 use App\FactoryPattern\Pizzas\Chicago\ChicagoStyleCheesePizza;
 use App\FactoryPattern\Pizzas\Chicago\ChicagoStyleClamPizza;
 use App\FactoryPattern\Pizzas\Chicago\ChicagoStylePepperoniPizza;
@@ -13,22 +13,15 @@ class ChicagoPizzeria extends PizzaStore
 {
     public function createPizza(string $type): Pizza
     {
-        $ingredientFactory = new CaliforniaPizzaIngredientFactory();
+        $ingredientFactory = new ChicagoPizzaIngredientFactory();
 
-        if ($type === 'cheese') {
-            return  new ChicagoStyleCheesePizza($ingredientFactory);
-        }
+        $pizza = [
+            'cheese' => ChicagoStyleCheesePizza::class,
+            'pepperoni' => ChicagoStylePepperoniPizza::class,
+            'clam' => ChicagoStyleClamPizza::class,
+            'veggies' => ChicagoStyleVeggiePizza::class,
+        ][$type];
 
-        if ($type === 'pepperoni') {
-            return  new ChicagoStylePepperoniPizza($ingredientFactory);
-        }
-
-        if ($type === 'clam') {
-            return  new ChicagoStyleClamPizza($ingredientFactory);
-        }
-
-        if ($type === 'veggie') {
-            return  new ChicagoStyleVeggiePizza($ingredientFactory);
-        }
+        return new $pizza($ingredientFactory);
     }
 }

@@ -21,6 +21,6 @@ class CaliforniaStyleVeggiePizza extends Pizza
         $this->dough = $this->ingredientFactory->createDough();
         $this->sauce = $this->ingredientFactory->createSauce();
         $this->cheese = $this->ingredientFactory->createCheese();
-        $this->veggies = $this->ingredientFactory->createVeggies();
+        $this->toppings = $this->ingredientFactory->createVeggies();
     }
 }

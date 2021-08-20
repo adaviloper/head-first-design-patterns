@@ -14,20 +14,14 @@ class CaliforniaPizzeria extends PizzaStore
     public function createPizza(string $type): Pizza
     {
         $ingredientFactory = new CaliforniaPizzaIngredientFactory();
-        if ($type === 'cheese') {
-            return  new CaliforniaStyleCheesePizza($ingredientFactory);
-        }
 
-        if ($type === 'pepperoni') {
-            return  new CaliforniaStylePepperoniPizza($ingredientFactory);
-        }
+        $pizza = [
+            'cheese' => CaliforniaStyleCheesePizza::class,
+            'pepperoni' => CaliforniaStylePepperoniPizza::class,
+            'clam' => CaliforniaStyleClamPizza::class,
+            'veggies' => CaliforniaStyleVeggiePizza::class,
+        ][$type];
 
-        if ($type === 'clam') {
-            return  new CaliforniaStyleClamPizza($ingredientFactory);
-        }
-
-        if ($type === 'veggie') {
-            return  new CaliforniaStyleVeggiePizza($ingredientFactory);
-        }
+        return new $pizza($ingredientFactory);
     }
 }

@@ -7,6 +7,7 @@ use App\FactoryPattern\Ingredients\Cheese;
 use App\FactoryPattern\Ingredients\Clam;
 use App\FactoryPattern\Ingredients\Pepperoni;
 use App\FactoryPattern\Ingredients\Veggies;
+use Illuminate\Support\Collection;
 
 abstract class Pizza
 {
@@ -22,11 +23,8 @@ abstract class Pizza
     /** @var string $sauce */
     protected $sauce;
 
-    /** @var array $toppings */
+    /** @var Collection $toppings */
     protected $toppings = [];
-
-    /** @var Veggies[] $veggies */
-    protected $veggies = [];
 
     /** @var Cheese $cheese */
     protected $cheese;
@@ -76,7 +74,9 @@ abstract class Pizza
         echo "Adding sauce...\n";
         echo "Adding toppings...\n";
         $this->toppings->each(function ($topping) {
-            echo "\t{$topping}\n";
+            $toppingName = collect(explode('\\', get_class($topping)))
+                ->last();
+            echo "\t{$toppingName}\n";
         });
     }
 }

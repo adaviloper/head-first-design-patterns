@@ -16,7 +16,6 @@ use App\FactoryPattern\Ingredients\ReggianoCheese;
 use App\FactoryPattern\Ingredients\Sauce;
 use App\FactoryPattern\Ingredients\SlicedPepperoni;
 use App\FactoryPattern\Ingredients\ThinCrustDough;
-use App\FactoryPattern\Ingredients\Veggies;
 use Illuminate\Support\Collection;
 
 class CaliforniaPizzaIngredientFactory implements PizzaIngredientFactory
