@@ -17,6 +17,7 @@ use App\FactoryPattern\Ingredients\Sauce;
 use App\FactoryPattern\Ingredients\SlicedPepperoni;
 use App\FactoryPattern\Ingredients\ThinCrustDough;
 use App\FactoryPattern\Ingredients\Veggies;
+use Illuminate\Support\Collection;
 
 class NYPizzaIngredientFactory implements PizzaIngredientFactory
 {
@@ -36,14 +37,14 @@ class NYPizzaIngredientFactory implements PizzaIngredientFactory
         return new ReggianoCheese();
     }
 
-    public function createVeggies(): array
+    public function createVeggies(): Collection
     {
-        return [
+        return collect([
             new Garlic(),
             new Onion(),
             new Mushroom(),
             new RedPepper(),
-        ];
+        ]);
     }
 
     public function createPepperoni(): Pepperoni

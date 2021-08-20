@@ -37,6 +37,11 @@ abstract class Pizza
     /** @var Clam $clam */
     protected $clam;
 
+    public function __construct()
+    {
+        $this->toppings = collect();
+    }
+
     abstract public function prepare(): void;
 
     public function bake(): void
@@ -70,8 +75,8 @@ abstract class Pizza
         echo "Tossing dough...\n";
         echo "Adding sauce...\n";
         echo "Adding toppings...\n";
-        foreach ($this->toppings as $topping) {
+        $this->toppings->each(function ($topping) {
             echo "\t{$topping}\n";
-        }
+        });
     }
 }

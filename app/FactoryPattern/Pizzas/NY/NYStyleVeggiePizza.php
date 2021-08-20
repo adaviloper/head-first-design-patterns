@@ -11,6 +11,7 @@ class NYStyleVeggiePizza extends Pizza
 
     public function __construct(PizzaIngredientFactory $ingredientFactory)
     {
+        parent::__construct();
         $this->ingredientFactory = $ingredientFactory;
     }
 

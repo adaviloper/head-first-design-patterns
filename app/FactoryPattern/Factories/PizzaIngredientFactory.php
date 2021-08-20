@@ -8,6 +8,7 @@ use App\FactoryPattern\Ingredients\Dough;
 use App\FactoryPattern\Ingredients\Pepperoni;
 use App\FactoryPattern\Ingredients\Sauce;
 use App\FactoryPattern\Ingredients\Veggies;
+use Illuminate\Support\Collection;
 
 interface PizzaIngredientFactory
 {
@@ -17,10 +18,7 @@ interface PizzaIngredientFactory
 
     public function createCheese(): Cheese;
 
-    /**
-     * @return Veggies[]
-     */
-    public function createVeggies(): array;
+    public function createVeggies(): Collection;
 
     public function createPepperoni(): Pepperoni;
 
