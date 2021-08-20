@@ -1,0 +1,35 @@
+{
+    "name": "richardtin/php-unit-test-example",
+    "description": "A boilerplate project for PHP + Unit Test",
+    "type": "project",
+    "require-dev": {
+        "roave/security-advisories" : "dev-latest"
+        ,
+        "mockery/mockery": "^1.4",
+        "phpunit/phpunit" : "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests"
+        ],
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Richard Ting",
+            "email": "richard.tin@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "^8.48",
+        "psy/psysh": "^0.10.8"
+    }
+}
